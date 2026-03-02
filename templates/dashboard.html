@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+<div class="container">
+    <h2>My Notes</h2>
+
+    <textarea id="note" placeholder="Write something..."></textarea>
+    <button onclick="addNote()" class="glow-btn">Add Note</button>
+
+    <div id="notes"></div>
+</div>
+
+<script>
+let username = localStorage.getItem("username");
+
+async function addNote(){
+    await fetch("/add_note", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            username: username,
+            note: document.getElementById("note").value
+        })
+    });
+    loadNotes();
+}
+
+async function loadNotes(){
+    let res = await fetch("/get_notes/" + username);
+    let data = await res.json();
+
+    let notesDiv = document.getElementById("notes");
+    notesDiv.innerHTML = "";
+    data.forEach(n => {
+        notesDiv.innerHTML += `<div class="note-box">${n.note}</div>`;
+    });
+}
+
+loadNotes();
+</script>
+
+</body>
+</html>
