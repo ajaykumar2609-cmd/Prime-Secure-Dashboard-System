@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio | Your Name</title>
+    <meta name="description" content="Personal portfolio of Your Name, a developer focused on building clean, modern web experiences.">
+    <link rel="stylesheet" href="static/portfolio.css">
+</head>
+<body>
+    <header class="nav">
+        <div class="nav-brand">YourName</div>
+        <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Hello, I'm</p>
+                <h1 class="hero-title">Your Name</h1>
+                <p class="hero-subtitle">A <span class="accent">Developer / Designer</span> who loves building clean, modern web experiences.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn primary">View Projects</a>
+                    <a href="#contact" class="btn ghost">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-avatar">YN</div>
+                <p class="hero-tagline">Open to internships and freelance opportunities.</p>
+                <div class="hero-meta">
+                    <div>
+                        <span class="meta-label">Location</span>
+                        <span class="meta-value">Your City</span>
+                    </div>
+                    <div>
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">Full‑Stack Developer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="section-header">
+                <h2>About</h2>
+                <p>A quick introduction</p>
+            </div>
+            <div class="section-grid two">
+                <p>
+                    I'm a developer passionate about crafting intuitive UIs and robust backends.
+                    I enjoy turning complex problems into simple, beautiful interfaces and performant systems.
+                </p>
+                <p>
+                    Recently I've been working with Flask, MongoDB, and modern frontend tools.
+                    I'm always learning and looking for interesting projects to contribute to.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="section-header">
+                <h2>Projects</h2>
+                <p>Some things I've built</p>
+            </div>
+            <div class="section-grid three">
+                <article class="card">
+                    <h3>Smart Notes App</h3>
+                    <p>A secure note‑taking web app with authentication, built using Flask, MongoDB, and JWT.</p>
+                    <ul>
+                        <li>User registration & login</li>
+                        <li>JWT‑based authentication</li>
+                        <li>Responsive, clean UI</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Project Two</h3>
+                    <p>Short description of another project. Mention the stack and what makes it interesting.</p>
+                    <ul>
+                        <li>Key feature one</li>
+                        <li>Key feature two</li>
+                        <li>Deployed on ...</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Project Three</h3>
+                    <p>Short description of another project. Highlight impact, metrics, or learning.</p>
+                    <ul>
+                        <li>Key detail one</li>
+                        <li>Key detail two</li>
+                        <li>Tech used: X, Y, Z</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="section-header">
+                <h2>Skills</h2>
+                <p>Technologies I work with</p>
+            </div>
+            <div class="chip-row">
+                <span class="chip">Python</span>
+                <span class="chip">Flask</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">HTML &amp; CSS</span>
+                <span class="chip">Git</span>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-header">
+                <h2>Contact</h2>
+                <p>Let's work together</p>
+            </div>
+            <div class="section-grid two">
+                <p>
+                    Have an idea, internship opportunity, or just want to say hi?
+                    Reach out and I'll get back to you as soon as I can.
+                </p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your name" required>
+                    <input type="email" placeholder="Your email" required>
+                    <textarea rows="4" placeholder="Your message" required></textarea>
+                    <button type="submit" disabled title="Hook this up to a backend to enable sending.">Send Message</button>
+                    <p class="contact-note">This is a static demo form. Link it to your email or backend to make it live.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>© <span id="year"></span> Your Name. All rights reserved.</span>
+        <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script>
+        // Set current year in footer without any backend
+        (function () {
+            var yearEl = document.getElementById('year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+        })();
+    </script>
+</body>
+</html>
+

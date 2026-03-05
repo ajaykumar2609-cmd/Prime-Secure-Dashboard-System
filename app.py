@@ -1,15 +1,20 @@
+import os
+from datetime import datetime
+
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import (
-    JWTManager, create_access_token,
-    jwt_required, get_jwt_identity
+    JWTManager,
+    create_access_token,
+    jwt_required,
+    get_jwt_identity,
 )
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/smartnotes"
-app.config["JWT_SECRET_KEY"] = "supersecretkey"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb://localhost:27017/smartnotes")
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "supersecretkey")
 
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
@@ -20,6 +25,14 @@ jwt = JWTManager(app)
 @app.route("/")
 def home():
     return render_template("login.html")
+
+
+@app.route("/portfolio")
+def portfolio():
+    return render_template(
+        "portfolio.html",
+        current_year=datetime.now().year,
+    )
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
